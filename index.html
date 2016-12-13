@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<title>My New Web Project!</title>
+		<link rel="stylesheet" href="leaflet.css" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+	<script src="leaflet-src.js"></script>
+	
+	<style>
+		body { max-width: 1200px }
+		#mapSvg { width: 500px; height: 500px; margin: 20px }
+		#mapCanvas { width: 500px; height: 500px; margin: 20px }
+		.left { float: left; text-align: center }
+		.right { float: right; text-align: center }
+	</style>
+	</head>
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<body>
+		<div class="mainwrapper">
+			<div class="headerwrapper">
+				<div class="logo"><img src="images/hospital_logo.gif" alt="My Website!" /></div>
+				<div class="searchbox">
+					<form>
+						<input type="text" name="searchtext" class="inputbox" />
+						<input type="button" value="Search" class="button" />
+					</form>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+		
+		<div class="menuwrapper">
+			<ul>
+				<li><a href="index.html" class="current">Home</a></li>
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="Services.html">Services</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+			</ul>
+		</div>
+		
+		<div class="contentwrapper">
+			<div class="contentleft">
+				<div class="content">
+					<div class="right">
+		<h2 style="color:green;font-family:verdana;font-size:200%;">Welcome to Hamro Hospital!</h2>
+		<div id="mapCanvas"></div>
+	</div>
+			<script type='text/javascript' src='kathmandu_valley_hospitals.geojson'></script>
+			<script type="text/javascript">
+		function makeMap(container, options) {
+			var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+				osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+				osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmAttrib});
+			var map = L.map(container, options)
+				.setView([27.7172, 85.3340], 12)
+				.addLayer(osm);
+				//checked
+
+
+L.geoJSON(pass, {
+    onEachFeature: function (features, layer) {
+        // Check if feature is a polygon
+        if (features.geometry.type === 'Polygon') {
+            // Don't stroke and do opaque fill
+            layer.setStyle({
+                'weight': 0,
+                'fillOpacity': 0
+            });
+            // Get bounds of polygon
+            var bounds = layer.getBounds();
+            // Get center of bounds
+            var center = bounds.getCenter();
+            // Use center to put marker on map
+            var marker = L.marker(center).bindPopup( features.properties.name )
+				.addTo( map );
+        }
+    }
+}).addTo(map);
+
+        
+				/*
+				for ( var i=0; i < markers.length; ++i ) 
+{
+				L.marker( [markers[i].lat, markers[i].lon] )
+				.bindPopup( '<a href="' + markers[i].icon + '" target="_blank">' + markers[i].display_name + markers[i].type +'</a>' )
+				.addTo( map );
+}
+*/
+		}
+		makeMap('mapCanvas', { preferCanvas: true });
+	</script>		
+		
+		
+					<p style="color:brown;font-family:verdana;font-size:100%;">
+		<br><br><br><br>Here you can find all the hospital in Kathmandu Valley with the facilities and services they provide. The map is easy to navigate.   
+					By clicking on the Hospital the information about the hospitals are displayed. The information regarding the services like ultrasound, ECG, CT scan, ECO, the blood test specification, and etc are enlisted. The facilities like number of bed, number of doctors and the physicians are also alongside the facilities. This website is created so that the patient will get the information about the hospital easily in the virtual enviornment.   </p>
+					
+				</div>
+			</div>
+			<div class="contentright">
+				<div class="newsevents">
+					<h2>News & Events</h2>
+					<p>We will be updating the information about the hospitals outside the valley soon. </p>
+				</div>
+				<hr />
+				<div class="newsevents">
+					<h2>Notice</h2>
+					<p>Please share the information to everyone and if you have any queries please message us. </p>
+				</div>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		</div>
+		<div class="footerwrapper">
+			<ul>
+				<li><a href="index.html" class="current">Home</a></li>
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="Services.html">Services</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+			</ul>
+			
+			<br />
+			Copyright Kathmandulivinglabs;2016. All Rights Reserved.
+		</div>
+	</body>
+</html>

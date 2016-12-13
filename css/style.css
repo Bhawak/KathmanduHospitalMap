@@ -1,0 +1,116 @@
+*, html, body{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: verdana, arial, helvetica;
+	font-size: 11px;
+	color: #000;
+	background: url(images/bg.jpg) repeat #ccc;
+}
+
+.mainwrapper{
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #fff;
+	min-height: 500px;
+	margin-top: 10px;
+}
+
+.logo{
+	width: 210px;
+	float: left;
+	padding: 10px;
+}
+
+.searchbox{
+	width: 400px;
+	float: right;
+	text-align: right;
+	padding: 30px 30px;
+}
+
+.inputbox{
+	border: 1px solid #000;
+}
+
+.button{
+	border: 1px solid #000;
+	background: #ccc;
+	color: #000;
+}
+
+.menuwrapper{
+	background-color: #000;
+	height: 30px;
+}
+
+.menuwrapper ul{
+	list-style: none;
+}
+
+.menuwrapper ul li{
+	display: inline;
+}
+
+.menuwrapper ul li a{
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 14px;
+	text-decoration: none;
+	padding: 5px 8px;
+	height: 30px;
+}
+
+.menuwrapper ul li a.current, .menuwrapper ul li a:hover{
+	background: #ccc;
+	color: #000;
+}
+
+.contentleft{
+	width: 730px;
+	float: left;
+	min-height: 500px;
+}
+
+.contentright{
+	margin-top: 120px;
+	width: 230px;
+	float: right;
+	min-height: 500px;
+}
+
+.newsevents{
+	padding: 5px 10px;
+}
+
+.newsevents p{
+	text-align: justify;
+	padding-top: 5px;
+}
+
+.newsevents h2{
+	color: blue;
+	text-transform: uppercase;
+	border-bottom: 2px dashed #000;
+}
+
+.content{
+	font-size: 14px;
+	padding: 10px;
+}
+
+.footerwrapper{
+	font-size: 12px;
+	text-align: center;
+}
+
+.footerwrapper ul{
+	list-style: none;
+}
+
+.footerwrapper ul li{
+	display: inline;
+}
